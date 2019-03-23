@@ -5,21 +5,22 @@ public class MonHoc {
 	private String ten;
 	private int sotc;
 	private int cc;
-	private int bt;
-	private int kt;
-	private int thi;
 	private int th;
+	private int kt;
+	private int bt;
+	private int thi;
 	
-	public MonHoc(int mamh, String ten, int sotc, int cc, int bt, int kt, int thi, int th) {
+	
+	public MonHoc(int mamh, String ten, int sotc, int cc, int th, int kt, int bt, int thi) {
 		super();
 		this.mamh = mamh;
 		this.ten = ten;
 		this.sotc = sotc;
 		this.cc = cc;
-		this.bt = bt;
-		this.kt = kt;
-		this.thi = thi;
 		this.th = th;
+		this.kt = kt;
+		this.bt = bt;
+		this.thi = thi;
 	}
 
 	public int getMamh() {
@@ -84,6 +85,12 @@ public class MonHoc {
 
 	public void setTh(int th) {
 		this.th = th;
+	}
+
+	@Override
+	public String toString() {
+		return "MonHoc [mamh=" + mamh + ", ten=" + ten + ", sotc=" + sotc + ", cc=" + cc + ", bt=" + bt + ", kt=" + kt
+				+ ", thi=" + thi + ", th=" + th + "]";
 	}
 	
 	

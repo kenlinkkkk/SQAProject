@@ -8,4 +8,12 @@
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>SeasonScore</servlet-name>
+        <servlet-class>servlet.SeasonScore</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SeasonScore</servlet-name>
+        <url-pattern>/SeasonScore</url-pattern>
+    </servlet-mapping>
 </web-app>

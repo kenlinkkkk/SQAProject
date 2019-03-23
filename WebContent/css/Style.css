@@ -1,25 +1,25 @@
-@charset "UTF-8";
+body{padding-top:30px;}
 
-*{padding: 0; margin: 0; font-family: Helvetica Neue,Helvetica,Arial,sans-serif;; font-size: 14px; }
+.div-margin {
+	margin: auto; 
+	border-radius: 5px;
+}
+.clickable{
+    cursor: pointer;   
+}
 
-.clearfix {
-	width: 100%;
-	background-color: #E5E5E5;
+.panel-heading div {
+	margin-top: 10px;
+	font-size: 15px;
 }
-.login-form {
-	width: 40%;
-	margin: auto;
+.panel-heading div span{
+	margin-left:5px;
 }
-input {
-	width: 200px;
-	border-radius: 3px;
-	height: 20px;	
+.panel-body{
+	display: none;
 }
-label {
-	font-weight: bold;
-	color: blue;
-}
-h3 {
-	font-size: 20px;
-	padding: 20px;
+
+.point {
+	font-size: 15px;
+	color: red;
 }

@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Xem điểm cá nhân</title>
+<title>Điểm cá nhân</title>
 <link href="css/Style.css" rel="stylesheet"/>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" type="text/css">
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -41,16 +41,6 @@
 	            </div>
 	        </div>        
 	    </div>
-	    <div class="row">
-	    	<div class="col-md-6" style="margin: auto; padding-top: 10px;">
-	        	<form action="SeasonScore" method="post" class="form-inline">
-	        		<strong style="padding-right: 30px;">Xem điểm theo kỳ: </strong>
-	        		<input type="number" required="required" maxlength="6" name="kyhoc" placeholder="20161" class="form-control form-control-sm">
-	        		<input type="submit" name="btnSubmit" value="Xem" class="btn btn-sm btn-outline-success" style="margin-left: 30px;">
-	        	</form>   
-	        	<strong><a href="AllSeason.jsp">Xem bảng điểm cá nhân</a></strong>
-	    	</div>			
-		</div>
 	</div>
 	<div class="container">
     	<div class="row">
@@ -79,8 +69,44 @@
 								<th>TK(4)</th>
 								<th>Điểm chữ</th>
 							</tr>
+							<%
+								MainCtr ctr = new MainCtr(sinhVien);
+								ArrayList<Diem> listDiems = new ArrayList<Diem>();
+								listDiems = ctr.getAllMarkbySeasson((String)request.getSession().getAttribute("kyhoc"));
+								for(int i = 0; i < listDiems.size(); i ++){
+							%>
+							<tr>
+								<td><%= i+1 %></td>
+								<td><%= listDiems.get(i).getMamon() %></td>
+								<td><%= listDiems.get(i).getMonHoc().getTen() %></td>
+								<td><%= listDiems.get(i).getMonHoc().getSotc() %></td>
+								<td><%= listDiems.get(i).getMonHoc().getCc() %></td>
+								<td><%= listDiems.get(i).getMonHoc().getKt() %></td>
+								<td><%= listDiems.get(i).getMonHoc().getTh() %></td>
+								<td><%= listDiems.get(i).getMonHoc().getBt() %></td>
+								<td><%= listDiems.get(i).getMonHoc().getThi() %></td>
+								<td><%= listDiems.get(i).getDiemcc() %></td>
+								<td><%= listDiems.get(i).getDiemkt() %></td>
+								<td><%= listDiems.get(i).getDiemth() %></td>
+								<td><%= listDiems.get(i).getDiembt() %></td>
+								<td><%= listDiems.get(i).getDiemthi() %></td>
+								<td><%= listDiems.get(i).getDiem10() %></td>
+								<td><%= listDiems.get(i).getDiem4() %></td>
+								<td><%= listDiems.get(i).getDiemchu() %></td>
+							</tr>
+							<%
+								}
+							%>
 					</table>
 				</div>
+				<%
+					double diem10 = ctr.avgPoint10(listDiems);
+					double diem4 = ctr.avgPoint4(diem10);
+					String xephang = ctr.xeploai(diem4);
+				%>
+				<p class="point">Điểm trung bình hệ 10: <%=diem10 %></p>
+				<p class="point">Điểm trung bình tích lũy hệ 4: <%=diem4 %></p>
+				<p class="point">Xếp loại: <%=xephang %></p>
 			</div>
 		</div>
 	</div>
