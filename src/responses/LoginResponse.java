@@ -32,6 +32,8 @@ public class LoginResponse extends HttpServlet {
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
 		
+		System.out.println(username + " - " + password);
+		
 		SinhVien sVien = new SinhVien();
 		sVien.setMasv(username);
 		sVien.setPassword(password);

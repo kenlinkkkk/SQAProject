@@ -117,7 +117,8 @@ public class MainServices {
     public  SinhVien login(String username,String password) throws SQLException{
        ConnectionSQL conn = new ConnectionSQL();
        ResultSet rs = conn.excuteQuery(String.format("SELECT * FROM SinhVien WHERE `masv` = '%s' AND `password`='%s'", username,password));
-       
+       System.out.println(conn.toString());
+
        while (rs.next()) {
           SinhVien user;
           user = new SinhVien();

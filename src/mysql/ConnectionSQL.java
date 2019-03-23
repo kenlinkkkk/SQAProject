@@ -47,8 +47,10 @@ public class ConnectionSQL {
 
     }catch(SQLException e) {
         e.printStackTrace();
-           
-    }
+         
+    }catch (Exception ex) {
+    	System.out.println(ex.toString());
+	}
      return null;
   }
 }
